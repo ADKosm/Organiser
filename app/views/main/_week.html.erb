@@ -1,0 +1,48 @@
+<nav >
+  <ul class="nav nav-pills ">
+    <%= show_week %>
+  </ul>
+</nav>
+
+<div class="panel-group schedule" id="accordion" role="tablist" aria-multiselectable="true">
+  <% @days.each_with_index do |element, index| %>
+      <div class="panel">
+        <div id="collapse<%= index %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+
+            <h4><%= element %>:</h4>
+
+            <ul class="list-group">
+              <% @lessons[index].each do |lesson| %>
+                  <li class="list-group-item">
+                    <b><%= lesson.kind.humanize %></b> : <%= lesson.discipline.name %> ( <%= lesson.name %> )
+
+                    <%= link_to lesson, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-xs btn-warning pull-right" do %>
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    <% end %>
+
+                    <%= link_to lesson, class: "btn btn-xs btn-info pull-right" do %>
+                        <span class="glyphicon glyphicon-info-sign"></span> Show
+                    <% end %>
+
+                    <%= link_to new_task_path(:lesson => lesson.id), class:"btn btn-xs btn-success pull-right" do %>
+                        <span class="glyphicon glyphicon-plus"></span> Add task
+                    <% end %>
+
+                  </li>
+              <% end %>
+            </ul>
+
+            <%= link_to  new_lesson_path(:day => index), class: "btn btn-default" do %>
+                <span class='glyphicon glyphicon-plus'></span> Add new lesson
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="progress">
+<%= render 'progress_bar' %>
+</div>

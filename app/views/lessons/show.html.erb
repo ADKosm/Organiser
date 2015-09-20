@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Lesson</div>
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h4>
+        <strong>Name:</strong>
+        <%= @lesson.name %>
+      </h4>
+    </li>
+    <li class="list-group-item">
+      <h4>
+        <strong>Type:</strong>
+        <%= @lesson.kind %>
+      </h4>
+    </li>
+    <li class="list-group-item">
+      <h4>
+        <strong>Discipline:</strong>
+        <%= link_to @lesson.discipline.name, @lesson.discipline %>
+      </h4>
+    </li>
+    <li class="list-group-item">
+      <h4>
+        <strong>Day:</strong>
+        <%= @lesson.day %>
+      </h4>
+    </li>
+  </ul>
+</div>
+
+
+<%= link_to 'Edit', edit_lesson_path(@lesson), class: "btn btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-default" %>

@@ -1,0 +1,34 @@
+<%= form_for(@lesson) do |f| %>
+  <% if @lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+
+      <ul>
+      <% @lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field form-group">
+      <%= f.label "Discipline", for: :discipline_id %><br>
+      <%= f.select(:discipline_id, options_from_collection_for_select(Discipline.all, 'id', 'name', @lesson.discipline_id), {}, {class: 'form-control'}) %>
+    </div>
+
+  <div class="field form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :kind, for: :kind %><br>
+    <%= f.select(:kind, options_for_select(Lesson.kinds.map { |k,l| [k,k] }, @lesson.kind), {}, class: 'form-control') %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :day, for: :day %><br>
+    <%= f.select(:day, options_for_select(Lesson.days.map { |k,l| [k,k] }, @day_selected || @lesson.day), {}, class: 'form-control') %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-default" %>
+  </div>
+<% end %>

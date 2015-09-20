@@ -1,0 +1,35 @@
+<%= form_for(@discipline) do |f| %>
+  <% if @discipline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@discipline.errors.count, "error") %> prohibited this discipline from being saved:</h2>
+
+      <ul>
+      <% @discipline.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :time_begin %><br>
+    <%= f.text_field :time_beg, class: 'form-control date', data: {provide: 'datepicker', :"date-format" => 'yyyy-mm-dd'} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :time_end %><br>
+    <%= f.text_field :time_end, class: 'form-control date', data: {provide: 'datepicker', :"date-format" => 'yyyy-mm-dd'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-default" %>
+  </div>
+<% end %>

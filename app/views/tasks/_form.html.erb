@@ -1,0 +1,38 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field form-group">
+      <%= f.label "Discipline", for: :discipline_id %><br>
+      <%= f.select(:discipline_id, options_from_collection_for_select(Discipline.all, 'id', 'name', @disc || @task.discipline_id), {}, {class: 'form-control'}) %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  <div class="field form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :raiting %><br>
+    <%= f.text_field :raiting, :class=>"slider", data: {"slider-min" => 0, "slider-max" => 100, "slider-value" => @task.raiting} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :deadline %><br>
+    <%= f.text_field :deadline, :value => @dead_date || @task.deadline , class: 'form-control date', data: {provide: 'datepicker', :"date-format" => 'yyyy-mm-dd'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-default" %>
+  </div>
+<% end %>

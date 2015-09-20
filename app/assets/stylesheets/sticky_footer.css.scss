@@ -1,0 +1,22 @@
+$footer_size: 50px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer_size;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footer_size;
+  background-color: #f5f5f5;
+}
+
+.text-muted {
+  margin: 15px 0;
+}

@@ -1,0 +1,38 @@
+
+<% @task_for_head.each do |day_tasks| %>
+    <% if day_tasks.empty? %>
+
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+             data-toggle="popover" data-placement="bottom" title="Nothing"
+             data-content="Ohh yeah! There are no tasks!"
+             style="width: <%= 100.0/(7) %>%">
+          <div class="task-name" data-toggle="tooltip" data-placement="top" title="Nothing">Nothing!</div>
+        </div>
+
+    <% else %>
+
+        <% day_tasks.each do |task| %>
+            <div class="progress-bar progress-bar-<%= task.bar_status %> progress-bar-striped"
+                 data-toggle="popover" data-placement="bottom" title='
+                 <%= task.name %>
+                    <%= link_to task, class: "btn btn-xs btn-info " do %>
+                        <span class="glyphicon glyphicon-info-sign"></span> Show
+                    <% end %>
+                 '
+                 data-content='
+                    <%= "#{task.description}" %><br>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= task.ready %>%;">
+                          <%= task.ready %>%
+                        </div>
+                    </div>
+
+                 ' data-html="true"
+                 style="width: <%= 100.0/(7 * day_tasks.size) %>%">
+              <div class="task-name" data-toggle="tooltip" data-placement="top" title="<%= task.discipline.name %>">
+                <%= task.short_discipline_name %></div>
+            </div>
+        <% end %>
+
+    <% end %>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  name: MyString
+  raiting: 1
+  deadline: 2015-09-12
+  ready: 1
+
+two:
+  description: MyString
+  name: MyString
+  raiting: 1
+  deadline: 2015-09-12
+  ready: 1

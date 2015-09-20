@@ -1,0 +1,19 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.schedule > .panel {
+  border: 0px !important;
+}
+
+#accordion {
+  margin: 0px !important;
+}
+
+
+.nav-pills li {
+  float:none;
+  display:table-cell;
+  width: 14.15% !important;
+  text-align:center;
+}

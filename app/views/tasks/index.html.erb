@@ -1,0 +1,33 @@
+<h1>Listing tasks</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Discipline</th>
+      <th>Name</th>
+      <th>Raiting</th>
+      <th>Deadline</th>
+      <th>Ready</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.discipline.name %></td>
+        <td><%= task.name %></td>
+        <td><%= task.raiting %></td>
+        <td><%= task.deadline %></td>
+        <td><%= task.ready %>%</td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path, class: "btn btn-default" %>
