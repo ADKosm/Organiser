@@ -25,4 +25,4 @@
 curl*.sh
 try.rb
 *.bkpalex
-.idea/*
+.idea
