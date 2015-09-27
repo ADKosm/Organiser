@@ -11,7 +11,7 @@ module TimeHelper
       if @lesson.empty?
         lesson_time = now
       else
-        lesson_time = now + ( 6 - wday + Lesson.days[@lesson[0].day] ).day
+        lesson_time = now + ( 7 - wday + Lesson.days[@lesson[0].day] ).day
       end
 
     else
@@ -30,7 +30,7 @@ module TimeHelper
     now = Time.now
     wday = (now.wday - 1) % 7
     if day < wday
-      next_time = now + ( 6 - wday + day ).day
+      next_time = now + ( 7 - wday + day ).day
     else
       next_time = now + (day - wday).day
     end

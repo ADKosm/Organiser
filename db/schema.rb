@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911214237) do
+ActiveRecord::Schema.define(version: 20150922193652) do
 
   create_table "disciplines", force: true do |t|
     t.string   "name"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20150911214237) do
     t.string   "name"
     t.integer  "raiting"
     t.date     "deadline"
-    t.integer  "ready"
     t.integer  "discipline_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ready",         default: 0
   end
 
   add_index "tasks", ["discipline_id"], name: "index_tasks_on_discipline_id"

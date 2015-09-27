@@ -25,7 +25,7 @@
                     <b>Description: </b>
                     <%= task.description %><br>
 
-                    <b>Ready:</b>                    <%= render 'update_ready', locals:{:task => task} %> <br><br>
+                    <b>Ready:</b>                    <%= render 'update_ready', locals:{:task => task, :uid => 'tod'} %> <br><br>
                     <div class="progress">
                       <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= task.ready %>%;">
                         <%= task.ready %>%

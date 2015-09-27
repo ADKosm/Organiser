@@ -6,7 +6,7 @@ module CalculationHelper
     if time_delta != 0
       task.raiting / time_delta
     else
-      11
+      task.raiting * 2
     end
   end
 end

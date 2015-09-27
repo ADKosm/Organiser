@@ -4,10 +4,11 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
+#main_data {
   /* Margin bottom by footer height */
-  margin-bottom: $footer_size;
+  margin-bottom: 30px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;

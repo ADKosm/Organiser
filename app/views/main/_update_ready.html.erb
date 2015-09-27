@@ -1,12 +1,13 @@
 <% task = locals[:task] %>
+<% uid = locals[:uid] %>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal<%= task.id %>">
+<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal<%= task.id %>_<%= uid %>">
   Update ready
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal<%= task.id %>_<%= uid %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
