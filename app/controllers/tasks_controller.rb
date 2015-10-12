@@ -25,6 +25,8 @@ class TasksController < ApplicationController
       lesson = Lesson.find(params[:lesson].to_i)
       @dead_date = get_next_time_by_day(lesson.get_day_in_i).to_formatted_s(:org_db)
       @disc = lesson.discipline_id.to_i
+    elsif params[:day]
+      @dead_date = get_next_time_by_day(params[:day].to_i).to_formatted_s(:org_db)
     else
       @dead_date = Time.now.to_formatted_s(:org_db)
     end

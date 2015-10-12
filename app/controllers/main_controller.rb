@@ -15,7 +15,7 @@ class MainController < ApplicationController
 
     @today_tasks = Task.where("ready < ?", 100).sort_by{|x| x.importance}.reverse.slice(0..2)
 
-    @all_tasks = Task.order(:deadline).first(7)
+    @all_tasks = Task.where("ready < ? and deadline > ?", 100, Time.now).order(:deadline).first(7)
 
   end
 end
