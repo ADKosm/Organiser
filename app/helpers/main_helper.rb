@@ -9,4 +9,13 @@ module MainHelper
     result.html_safe
   end
 
+  def show_week_offset
+    result_week = Time.now.beginning_of_week + (@week_offset*7).day
+    text = "#{result_week.to_formatted_s(:short)} - #{result_week.advance(days: 6).to_formatted_s(:short)}"
+    if @week_offset == 0
+      text += " (this week)"
+    end
+    text
+  end
+
 end

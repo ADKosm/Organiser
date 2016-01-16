@@ -6,8 +6,11 @@ class MainController < ApplicationController
     @days.each_with_index do |val, index|
       @lessons[index] = Lesson.where(day: index)
     end
+
+    @week_offset = params[:week].to_i
+
     @task_for_head = Array.new(7)
-    week_begin = Time.now.beginning_of_week
+    week_begin = Time.now.beginning_of_week + (@week_offset*7).day
     @task_for_head[0] = 5 # узнать, что делает эта строка и удалить, если она ничего не делает
     @days.each_with_index do |val, index|
       @task_for_head[index] = Task.where("deadline = ? and ready < ?", week_begin.advance(days: index).to_formatted_s(:org_db), 100)

@@ -1,5 +1,6 @@
 <nav >
   <ul class="nav nav-pills ">
+    <div></div>
     <%= show_week %>
   </ul>
 </nav>
@@ -48,4 +49,21 @@
 
 <div class="progress">
 <%= render 'progress_bar' %>
+</div>
+<div class="week_number_nav btn-toolbar">
+    <nav class="navbar">
+      <p class="navbar-left">
+        <%= link_to root_path(:week => @week_offset-1), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-arrow-left"></span>
+        <% end %>
+      </p>
+
+      <%= show_week_offset %>
+
+      <p class="navbar-right">
+        <%= link_to root_path(:week => @week_offset+1), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-arrow-right"></span>
+        <% end %>
+      </p>
+    </nav>
 </div>
